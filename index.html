@@ -56,7 +56,7 @@
 <main>
 
 <h1>SMB Play Library</h1>
-<p class="sub">Version 1 · Tech Touch book · Owner: Mike · Built Nov 2026</p>
+<p class="sub">Version 1.1 · Tech Touch book · Owner: Mike · Built Nov 2026</p>
 
 <p class="banner"><strong>Practice data only.</strong> Every account here is made up. Never log a real customer in this site.
 On the job, run these plays in Netlify's own tools and keep this site as the method, not the record.</p>
@@ -292,6 +292,69 @@ Mike</div>
   <p>You have the buyer's name and a meeting booked, and the champion got the credit.</p>
 </div>
 
+<!-- PLAY 04 -->
+<div class="card" id="play-04">
+  <span class="tag">Play 04</span><span class="tag risk">At risk</span>
+  <h3>Stuck at first deploy: project created, nothing live a week later</h3>
+
+  <p class="label">Trigger</p>
+  <p>A new project with failed deploys, or no production deploy 7 days after signup.</p>
+
+  <p class="label">Why it matters</p>
+  <p>More and more new customers built their site with an AI tool and have never seen a build setting <span class="src">[Public, Netlify's AX pitch]</span>.
+  When the first deploy fails or shows a blank page, they rarely file a ticket. They just never come back <span class="src">[Inference]</span>.
+  The build settings page assumes you know what a build is. A brand new user may not <span class="src">[Mike's own first deploy, Nov 20, 2026]</span>.
+  Failed deploys don't cost credits <span class="src">[Public, docs]</span>, so this account looks quiet and cheap, not broken.</p>
+
+  <p class="label">The fix, in plain words</p>
+  <p>Usually one setting. A finished site (plain HTML) needs no build command. A site made with a framework or AI tool usually needs a build command like <code>npm run build</code> and a publish folder like <code>dist</code>. A wrong publish folder is a common cause of a blank page or "Page not found" <span class="src">[Inference, confirm with Support]</span>.</p>
+
+  <p class="label">Sample account (made up)</p>
+  <p>Saltbox Yoga. Personal plan, 1 member, signed up 9 days ago. 3 failed deploys, 0 live. The owner built the site with an AI tool and is also the one paying.</p>
+
+  <p class="label">First message goes to</p>
+  <p><strong>The person who built it.</strong> They're stuck and they're the only one who can fix it. On a one-person account the builder, champion and signer are the same person, so this is the one time it looks like Future.</p>
+
+  <details><summary>Template: user (the builder)</summary>
+<div class="msg">Subject: Your site isn't live yet
+
+Hi {first name},
+
+I look after new Netlify accounts. Your project has tried to go live 3 times and hasn't made it yet.
+
+That's almost always one setting, not something wrong with your site.
+Can you reply with how you built it (for example Bolt, Lovable, or plain HTML)? I'll send the exact setting to change.
+
+Mike</div>
+  </details>
+  <details><summary>Template: champion (if someone else brought Netlify in)</summary>
+<div class="msg">Subject: {builder name}'s first deploy
+
+Hi {first name},
+
+{builder name} set up your Netlify project last week, and it isn't live yet. I've offered to help with the setting that's usually the cause.
+
+If they've moved on to something else, let me know who should get this instead.
+
+Mike</div>
+  </details>
+  <details><summary>Template: renewal signer (only if still stuck after 14 days)</summary>
+<div class="msg">Subject: Your Netlify project isn't live yet
+
+Hi {first name},
+
+You're paying for a Netlify plan, and your site hasn't gone live yet.
+I've reached out to {builder name} with the fix. If the project is on hold, tell me and I'll check back next month instead.
+
+Mike</div>
+  </details>
+
+  <p class="label">Hand off when</p>
+  <p>They reply with an error message or a build log: Support. Don't guess at code.</p>
+  <p class="label">Success looks like</p>
+  <p>First production deploy within 7 days of your message.</p>
+</div>
+
 <!-- ============================================================
      OUTCOME LOG  (Netlify Form, practice entries only)
      ============================================================ -->
@@ -306,6 +369,7 @@ Mike</div>
     <option>01 Credit cliff</option>
     <option>02 Gone quiet</option>
     <option>03 Team outgrew its login</option>
+    <option>04 Stuck at first deploy</option>
   </select>
   <label for="account">Sample account (made up only)</label>
   <input id="account" name="account" required>

@@ -26,3 +26,4 @@ Started by Mike in Nov 2026, because there was no SMB playbook yet (said by Matt
 
 ## Version log
 - v1 (Nov 19, 2026): Plays 01 Credit cliff, 02 Gone quiet, 03 Team outgrew its login.
+- v1.1 (Nov 21, 2026): Play 04 Stuck at first deploy, from Mike's own confusion on the build settings page.
