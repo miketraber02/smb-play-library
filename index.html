@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SMB Play Library</title>
+<style>
+  :root {
+    --bg: #fbfbf9; --card: #ffffff; --ink: #1d1f21; --muted: #5b6168;
+    --line: #e3e4e0; --accent: #0b7a75; --risk: #b3261e; --grow: #2f6f2f; --watch: #8a5a00;
+    --chip: #eef3f2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141618; --card: #1c1f22; --ink: #e8e9ea; --muted: #a3a8ae;
+      --line: #2e3236; --accent: #4fc1bb; --risk: #f08a80; --grow: #8fd18f; --watch: #e6b85c;
+      --chip: #22302f;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 860px; margin: 0 auto; padding: 32px 16px 80px; }
+  h1 { font-size: 1.9rem; margin: 0 0 4px; }
+  h2 { font-size: 1.35rem; margin: 40px 0 12px; }
+  h3 { font-size: 1.05rem; margin: 18px 0 6px; }
+  p, li { color: var(--ink); }
+  .sub { color: var(--muted); margin: 0 0 20px; }
+  .banner { border: 1px solid var(--line); border-left: 4px solid var(--watch);
+    background: var(--card); padding: 12px 14px; border-radius: 8px; font-size: .95rem; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 18px 20px; margin: 16px 0; }
+  .tag { display: inline-block; font-size: .78rem; font-weight: 600; padding: 2px 8px;
+    border-radius: 999px; background: var(--chip); color: var(--accent); margin-right: 6px; }
+  .risk { color: var(--risk); } .grow { color: var(--grow); } .watch { color: var(--watch); }
+  .label { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em;
+    color: var(--muted); font-weight: 600; margin: 14px 0 2px; }
+  details { border-top: 1px solid var(--line); padding: 10px 0; }
+  summary { cursor: pointer; font-weight: 600; }
+  .msg { white-space: pre-wrap; background: var(--bg); border: 1px solid var(--line);
+    border-radius: 8px; padding: 12px 14px; font-size: .94rem; margin-top: 8px; }
+  table { width: 100%; border-collapse: collapse; font-size: .93rem; }
+  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; }
+  .src { font-size: .78rem; color: var(--muted); }
+  form label { display: block; font-weight: 600; margin: 12px 0 4px; font-size: .93rem; }
+  input, select, textarea { width: 100%; padding: 9px 10px; border-radius: 8px;
+    border: 1px solid var(--line); background: var(--bg); color: var(--ink); font: inherit; }
+  button { margin-top: 16px; padding: 10px 18px; border: 0; border-radius: 8px;
+    background: var(--accent); color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+  .hidden { display: none; }
+  nav a { color: var(--accent); margin-right: 14px; font-size: .95rem; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>SMB Play Library</h1>
+<p class="sub">Version 1 · Tech Touch book · Owner: Mike · Built Nov 2026</p>
+
+<p class="banner"><strong>Practice data only.</strong> Every account here is made up. Never log a real customer in this site.
+On the job, run these plays in Netlify's own tools and keep this site as the method, not the record.</p>
+
+<nav><a href="#tuesday">The Tuesday loop</a><a href="#roles">Who to talk to</a><a href="#plays">Plays</a><a href="#log">Outcome log</a></nav>
+
+<!-- ============================================================
+     THE TUESDAY LOOP  (readiness item 2)
+     ============================================================ -->
+<h2 id="tuesday">The Tuesday loop</h2>
+<p>Why this exists: Tech Touch accounts get a welcome email, then mostly silence until about 90 days before renewal <span class="src">[Said, Matt]</span>.
+Matt also said there is no SMB playbook yet <span class="src">[Said, Matt]</span>. This library is a first draft of one.</p>
+<div class="card">
+<ol>
+  <li><strong>Open the list.</strong> Look for accounts that match a play's trigger. Each play says what to look for.</li>
+  <li><strong>Pick the play, then the person.</strong> The trigger tells you which play. The play tells you who gets the first message.</li>
+  <li><strong>Send one message.</strong> Use the template, change it for the account, send it.</li>
+  <li><strong>Hand off what isn't yours.</strong> Bugs and odd traffic go to Support. A plan change past Pro goes to Sales. <span class="src">[Confirm the exact hand-off rules with Matt]</span></li>
+  <li><strong>Log the outcome.</strong> No response, replied, took the action, or stuck. Check back in 7 days.</li>
+</ol>
+<p class="label">What you're measured on</p>
+<p>Retention against an 85% target <span class="src">[Said, Matt]</span>. Pipeline is an unofficial target <span class="src">[Said]</span>. What counts at 90 days and 6 months is a week-one question <span class="src">[Confirm]</span>.</p>
+</div>
+
+<!-- ============================================================
+     WHO TO TALK TO  (readiness item 3)
+     ============================================================ -->
+<h2 id="roles">Who to talk to</h2>
+<p>At Future, one person used the app, decided to keep it and paid for it. At Netlify that is often three people.</p>
+<div style="overflow-x:auto"><table>
+  <tr><th>Role</th><th>Who they usually are</th><th>What they care about</th><th>What you give them</th></tr>
+  <tr><td><strong>User</strong></td><td>The developer, or the person who builds with AI and deploys</td><td>Shipping without things breaking</td><td>A fix, a setting, a how-to. Short and technical enough.</td></tr>
+  <tr><td><strong>Champion</strong></td><td>The person who brought Netlify in or defends it inside the company</td><td>Looking right for picking Netlify</td><td>Proof it's working, and early warning before a problem lands on them</td></tr>
+  <tr><td><strong>Renewal signer</strong></td><td>Owner, founder, finance, IT. May never log in.</td><td>Cost, risk, one clear decision</td><td>A choice with a price on it. Two options, max.</td></tr>
+</table></div>
+<p class="src">One public fact makes this real: only a Team Owner can turn auto recharge on or off <span>[Public, docs.netlify.com, checked Nov 19, 2026]</span>. The developer who sees the credit warning often can't fix it.</p>
+
+<!-- ============================================================
+     PLAYS
+     To add a play: copy one <div class="card"> block below,
+     give it the next number, and fill in every label.
+     ============================================================ -->
+<h2 id="plays">Plays</h2>
+
+<!-- PLAY 01 -->
+<div class="card" id="play-01">
+  <span class="tag">Play 01</span><span class="tag risk">At risk</span>
+  <h3>Credit cliff: Pro account will run out mid-cycle, auto recharge off</h3>
+
+  <p class="label">Trigger</p>
+  <p>Pro account past 75% of monthly credits with more than a week left in the cycle, and auto recharge off.</p>
+
+  <p class="label">Why it matters</p>
+  <p>When a Pro or Personal account runs out of credits, every site pauses and shows "Site not available." No new deploys. Forms stop taking submissions <span class="src">[Public, docs]</span>.
+  Netlify emails at 50%, 75% and 100% <span class="src">[Public, docs]</span>, but who gets those emails is a week-one question <span class="src">[Confirm]</span>.
+  For a small business, a paused site is lost sales today and a churn reason at renewal.</p>
+
+  <p class="label">The fix, in plain words</p>
+  <p>Turn on auto recharge (1,500 credits for $10 on Pro), or move to a bigger monthly credit tier (Pro offers 5,000 up to 20,000) <span class="src">[Public, Nov 19, 2026]</span>.</p>
+
+  <p class="label">Sample account (made up)</p>
+  <p>Juniper &amp; Rye Bakery. Pro plan, 3 members. Day 20 of 30, at 2,640 of 3,000 credits (88%). Auto recharge off. Bandwidth is 70% of usage after a holiday menu post went viral.</p>
+
+  <p class="label">First message goes to</p>
+  <p><strong>The Team Owner</strong>, because only they can turn on auto recharge. Copy the user so the fix doesn't wait on a handoff.</p>
+
+  <details><summary>Template: renewal signer / Team Owner</summary>
+<div class="msg">Subject: Your bakery site will pause in about 3 days
+
+Hi {first name},
+
+Your Netlify account has used 2,640 of its 3,000 monthly credits, and the month resets in 10 days.
+At this pace you run out in about 3. When that happens your site shows "Site not available" and online orders stop.
+
+The cause is good news. Your holiday menu post is drawing a lot of traffic.
+
+Two ways to keep the site up:
+1. Turn on auto recharge. It adds 1,500 credits for $10 only when you need them.
+2. Move to a 5,000 credit plan if this traffic is the new normal.
+
+Option 1 takes a minute and only a Team Owner can do it. Here's where: {link to billing settings}.
+
+Mike</div>
+  </details>
+  <details><summary>Template: user (developer)</summary>
+<div class="msg">Subject: Credits on {site name}
+
+Hi {first name},
+
+Heads up: your team is at 88% of its monthly credits with 10 days to go. About 70% of it is bandwidth from the menu page.
+
+I've asked {owner name} about turning on auto recharge, since only an owner can.
+On your side, two things are worth a look: image sizes on that page, and whether anything is hitting the site that shouldn't be.
+
+If the traffic looks wrong, reply and I'll get Support on it.
+
+Mike</div>
+  </details>
+  <details><summary>Template: champion</summary>
+<div class="msg">Subject: Your site is getting more traffic than it's built for
+
+Hi {first name},
+
+Quick one. Your holiday post drove enough traffic that the account will hit its monthly limit before the month ends.
+I've sent {owner name} the two options to keep it running. I wanted you to hear it from me first, not from a paused site.
+
+Mike</div>
+  </details>
+
+  <p class="label">Hand off when</p>
+  <p>Traffic looks like bots or a bug: Support. They want more than Pro offers: Sales <span class="src">[Confirm the threshold]</span>.</p>
+  <p class="label">Success looks like</p>
+  <p>Auto recharge on or plan changed before 100%. Site never pauses.</p>
+</div>
+
+<!-- PLAY 02 -->
+<div class="card" id="play-02">
+  <span class="tag">Play 02</span><span class="tag watch">Watch</span>
+  <h3>Gone quiet: deploys dropped and renewal is inside 90 days</h3>
+
+  <p class="label">Trigger</p>
+  <p>Production deploys over the last 4 weeks are less than half of the 4-month weekly average, and the renewal date is within 90 days.</p>
+
+  <p class="label">Why it matters</p>
+  <p>Fewer deploys can mean two things: the site is finished and stable, or the team is moving somewhere else. The data can't tell you which. A question can.
+  Asking early beats the "do you want to renew?" email that arrives with no history <span class="src">[Said, Matt]</span>.</p>
+
+  <p class="label">Sample account (made up)</p>
+  <p>Northfield Physical Therapy. $6K per year contract. Averaged 9 production deploys a week since July, 2 a week for the last 4. Renewal in 71 days. One developer, an office manager who pays the bill.</p>
+
+  <p class="label">First message goes to</p>
+  <p><strong>The user.</strong> They know why deploys dropped. Don't put renewal in front of the signer until you know.</p>
+
+  <details><summary>Template: user (developer)</summary>
+<div class="msg">Subject: Is the site where you want it?
+
+Hi {first name},
+
+I look after your Netlify account. Your team shipped about 9 updates a week through the fall. The last month it's been about 2.
+
+That's often a good sign: the site is done and stable. Sometimes it means something got in the way.
+Which one is it for you? One line is plenty.
+
+Mike</div>
+  </details>
+  <details><summary>Template: champion</summary>
+<div class="msg">Subject: Checking in before your renewal
+
+Hi {first name},
+
+Your renewal is in about 10 weeks. Before then I'd like to know what's working and what isn't, so nothing surprises either of us.
+
+What's one thing the site does for the practice now that it didn't a year ago?
+
+Mike</div>
+  </details>
+  <details><summary>Template: renewal signer</summary>
+<div class="msg">Subject: Your Netlify renewal on {date}
+
+Hi {first name},
+
+Your Netlify plan renews on {date}. Nothing changes unless you want it to.
+
+Since {start month}, your team has published {N} updates to the site, and it has been up through {busy period}.
+If anything about the plan or the price needs a look before then, reply here and I'll sort it out.
+
+Mike</div>
+  </details>
+
+  <p class="label">Hand off when</p>
+  <p>The user names a technical blocker: Support. They mention moving to Vercel or Cloudflare: flag to Matt.</p>
+  <p class="label">Success looks like</p>
+  <p>You know which kind of quiet it is within 14 days, and the signer hears from you before the renewal notice.</p>
+</div>
+
+<!-- PLAY 03 -->
+<div class="card" id="play-03">
+  <span class="tag">Play 03</span><span class="tag grow">Ready to grow</span>
+  <h3>Team outgrew its login: members jumped, security questions started</h3>
+
+  <p class="label">Trigger</p>
+  <p>Team members doubled in 60 days, or a support ticket mentions SSO, security review, offboarding or a compliance questionnaire.</p>
+
+  <p class="label">Why it matters</p>
+  <p>SSO is the moment a team tool becomes a company-approved tool, and the buyer is usually IT or security, not the developer <span class="src">[Said, Matt]</span>.
+  It's the first rung on the expansion ladder. Publicly, SSO is listed under Enterprise <span class="src">[Public]</span>. How a Tech Touch account gets it is a week-one question <span class="src">[Confirm]</span>.</p>
+
+  <p class="label">Sample account (made up)</p>
+  <p>Ledgerly, a 40-person bookkeeping firm. Pro plan. Members went from 4 to 11 in six weeks. Last week someone asked Support how to remove a former contractor's access.</p>
+
+  <p class="label">First message goes to</p>
+  <p><strong>The champion.</strong> They can tell you who in IT or ops owns access, and they want to be the one who brings the fix.</p>
+
+  <details><summary>Template: champion</summary>
+<div class="msg">Subject: Access for a bigger team
+
+Hi {first name},
+
+Your Netlify team went from 4 people to 11 since October, and someone asked us last week how to remove a former contractor.
+
+That usually means it's time for single sign-on, so access follows your company login and offboarding happens in one place.
+Who owns logins and access at Ledgerly? I'm happy to send them the details or join a short call with you both.
+
+Mike</div>
+  </details>
+  <details><summary>Template: user (developer)</summary>
+<div class="msg">Subject: Removing old members
+
+Hi {first name},
+
+Saw the question about removing a former contractor. Here's how to do it today: {docs link}.
+
+Longer term, single sign-on would handle this for you. I've raised it with {champion name}.
+
+Mike</div>
+  </details>
+  <details><summary>Template: buyer (IT, ops or finance)</summary>
+<div class="msg">Subject: Netlify access for Ledgerly
+
+Hi {first name},
+
+{champion name} mentioned you own access at Ledgerly. 11 people now publish to your website on Netlify, each with a separate login.
+
+Single sign-on ties those logins to your company accounts, so when someone leaves, their access goes with them.
+Do you want a 20 minute walkthrough of what that costs and how setup works?
+
+Mike</div>
+  </details>
+
+  <p class="label">Hand off when</p>
+  <p>The buyer says yes to the walkthrough: Sales, with notes on who's who <span class="src">[Confirm what a CSA can quote or close]</span>.</p>
+  <p class="label">Success looks like</p>
+  <p>You have the buyer's name and a meeting booked, and the champion got the credit.</p>
+</div>
+
+<!-- ============================================================
+     OUTCOME LOG  (Netlify Form, practice entries only)
+     ============================================================ -->
+<h2 id="log">Outcome log</h2>
+<p>Log every practice send. Submissions show up in your Netlify dashboard under Forms. After 4 weeks, sort by play and see which template got replies.</p>
+<div class="card">
+<form name="outcome-log" method="POST" action="/logged.html" data-netlify="true" netlify-honeypot="bot-field">
+  <p class="hidden"><label>Leave empty <input name="bot-field"></label></p>
+  <label for="play">Play</label>
+  <select id="play" name="play" required>
+    <option value="">Pick one</option>
+    <option>01 Credit cliff</option>
+    <option>02 Gone quiet</option>
+    <option>03 Team outgrew its login</option>
+  </select>
+  <label for="account">Sample account (made up only)</label>
+  <input id="account" name="account" required>
+  <label for="role">Who you messaged</label>
+  <select id="role" name="role" required>
+    <option value="">Pick one</option>
+    <option>User</option><option>Champion</option><option>Renewal signer</option>
+  </select>
+  <label for="outcome">Outcome</label>
+  <select id="outcome" name="outcome" required>
+    <option value="">Pick one</option>
+    <option>Sent, waiting</option><option>No response</option><option>Replied</option>
+    <option>Took the action</option><option>Stuck</option><option>Handed to Support</option><option>Handed to Sales</option>
+  </select>
+  <label for="notes">What happened, and what you'd change</label>
+  <textarea id="notes" name="notes" rows="3"></textarea>
+  <button type="submit">Log it</button>
+</form>
+</div>
+
+<p class="src">Facts tagged [Public] were checked on netlify.com and docs.netlify.com on Nov 19, 2026. Pricing changes often. Re-check before using a number with a customer.</p>
+</main>
+</body>
+</html>
