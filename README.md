@@ -54,4 +54,4 @@ Only a Team Owner can turn auto recharge on or off [Public, docs, Nov 2026].
 - v1 (Nov 19, 2026): Plays 01 Credit cliff, 02 Gone quiet, 03 Team outgrew its login.
 - v1.1 (Nov 21, 2026): Play 04 Stuck at first deploy, from Mike's own confusion on the build settings page.
 - v1.2 (Nov 21, 2026): First change made by Mike.
-- v2.0 (Nov 24, 2026): One job: track which first messages land. One versioned first message per play, a 5-field send log, a weekly review. Tuesday loop and role table moved here. The other role templates from v1.1 were deleted on purpose; they're in git history (tag `v1.1`) if any earn their way back.
+- v2.0 (Nov 24, 2026): One job: track which first messages land. One versioned first message per play, a 5-field send log, a weekly review. Tuesday loop and role table moved here. The other role templates from v1.1 were deleted on purpose; they're in git history (commit `4d64e01`, the last v1 version) if any earn their way back.
