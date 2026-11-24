@@ -56,43 +56,27 @@
 <main>
 
 <h1>SMB Play Library</h1>
-<p class="sub">Version 1.1 · Tech Touch book · Owner: Mike · Built Nov 2026</p>
+<p class="sub">Version 2.0 · Tech Touch book · Owner: Mike · Built Nov 2026</p>
 
 <p class="banner"><strong>Practice data only.</strong> Every account here is made up. Never log a real customer in this site.
 On the job, run these plays in Netlify's own tools and keep this site as the method, not the record.</p>
 
-<nav><a href="#tuesday">The Tuesday loop</a><a href="#roles">Who to talk to</a><a href="#plays">Plays</a><a href="#log">Outcome log</a></nav>
+<nav><a href="#how">How it learns</a><a href="#plays">Plays</a><a href="#log">Log a send</a><a href="#review">Weekly review</a></nav>
 
-<!-- ============================================================
-     THE TUESDAY LOOP  (readiness item 2)
-     ============================================================ -->
-<h2 id="tuesday">The Tuesday loop</h2>
-<p>Why this exists: Tech Touch accounts get a welcome email, then mostly silence until about 90 days before renewal <span class="src">[Said, Matt]</span>.
-Matt also said there is no SMB playbook yet <span class="src">[Said, Matt]</span>. This library is a first draft of one.</p>
+<h2 id="how">How it learns</h2>
 <div class="card">
+<p>This library has one job: find out which first messages land, and keep improving them.</p>
+<p class="label">What counts as landing</p>
+<p><strong>Took the action</strong> within 14 days is the headline: they turned on auto recharge, replied with who owns access, shipped the first deploy. <strong>Replied</strong> is the early read while action data is thin.</p>
+<p class="label">The loop</p>
 <ol>
-  <li><strong>Open the list.</strong> Look for accounts that match a play's trigger. Each play says what to look for.</li>
-  <li><strong>Pick the play, then the person.</strong> The trigger tells you which play. The play tells you who gets the first message.</li>
-  <li><strong>Send one message.</strong> Use the template, change it for the account, send it.</li>
-  <li><strong>Hand off what isn't yours.</strong> Bugs and odd traffic go to Support. A plan change past Pro goes to Sales. <span class="src">[Confirm the exact hand-off rules with Matt]</span></li>
-  <li><strong>Log the outcome.</strong> No response, replied, took the action, or stuck. Check back in 7 days.</li>
+  <li>Each play has <strong>one first message</strong> with a version ID, like 01-A.</li>
+  <li>Send it, then log it below with the version ID.</li>
+  <li>After 7 days, log the outcome: no reply, replied, or took the action.</li>
+  <li>Every week, compare versions. After about 10 sends, keep the winner and write a version B to beat it.</li>
 </ol>
-<p class="label">What you're measured on</p>
-<p>Retention against an 85% target <span class="src">[Said, Matt]</span>. Pipeline is an unofficial target <span class="src">[Said]</span>. What counts at 90 days and 6 months is a week-one question <span class="src">[Confirm]</span>.</p>
+<p class="src">Built with the 5-step algorithm: question the requirements, delete, simplify, speed up, automate last. Results are counted by hand until the format earns automation.</p>
 </div>
-
-<!-- ============================================================
-     WHO TO TALK TO  (readiness item 3)
-     ============================================================ -->
-<h2 id="roles">Who to talk to</h2>
-<p>At Future, one person used the app, decided to keep it and paid for it. At Netlify that is often three people.</p>
-<div style="overflow-x:auto"><table>
-  <tr><th>Role</th><th>Who they usually are</th><th>What they care about</th><th>What you give them</th></tr>
-  <tr><td><strong>User</strong></td><td>The developer, or the person who builds with AI and deploys</td><td>Shipping without things breaking</td><td>A fix, a setting, a how-to. Short and technical enough.</td></tr>
-  <tr><td><strong>Champion</strong></td><td>The person who brought Netlify in or defends it inside the company</td><td>Looking right for picking Netlify</td><td>Proof it's working, and early warning before a problem lands on them</td></tr>
-  <tr><td><strong>Renewal signer</strong></td><td>Owner, founder, finance, IT. May never log in.</td><td>Cost, risk, one clear decision</td><td>A choice with a price on it. Two options, max.</td></tr>
-</table></div>
-<p class="src">One public fact makes this real: only a Team Owner can turn auto recharge on or off <span>[Public, docs.netlify.com, checked Nov 19, 2026]</span>. The developer who sees the credit warning often can't fix it.</p>
 
 <!-- ============================================================
      PLAYS
@@ -133,7 +117,7 @@ Matt also said there is no SMB playbook yet <span class="src">[Said, Matt]</span
   <p class="label">First message goes to</p>
   <p><strong>The Team Owner</strong>, because only they can turn on auto recharge. Copy the user so the fix doesn't wait on a handoff.</p>
 
-  <details><summary>Template: renewal signer / Team Owner</summary>
+  <details open><summary>First message · Version 01-A · to the Team Owner (renewal signer)</summary>
 <div class="msg">Subject: Your bakery site will pause in about 3 days
 
 Hi {first name},
@@ -148,30 +132,6 @@ Two ways to keep the site up:
 2. Move to a 5,000 credit plan if this traffic is the new normal.
 
 Option 1 takes a minute and only a Team Owner can do it. Here's where: {link to billing settings}. If option 2 sounds right, let me know and we'll find 15 minutes to size the plan to your traffic.
-
-Mike</div>
-  </details>
-  <details><summary>Template: user (developer)</summary>
-<div class="msg">Subject: Credits on {site name}
-
-Hi {first name},
-
-Heads up: your team is at 88% of its monthly credits with 10 days to go. About 70% of it is bandwidth from the menu page.
-
-I've asked {owner name} about turning on auto recharge, since only an owner can.
-On your side, two things are worth a look: image sizes on that page, and whether anything is hitting the site that shouldn't be.
-
-If the traffic looks wrong, reply and I'll get Support on it.
-
-Mike</div>
-  </details>
-  <details><summary>Template: champion</summary>
-<div class="msg">Subject: Your site is getting more traffic than it's built for
-
-Hi {first name},
-
-Quick one. Your holiday post drove enough traffic that the account will hit its monthly limit before the month ends.
-I've sent {owner name} the two options to keep it running. I wanted you to hear it from me first, not from a paused site.
 
 Mike</div>
   </details>
@@ -200,7 +160,7 @@ Mike</div>
   <p class="label">First message goes to</p>
   <p><strong>The user.</strong> They know why deploys dropped. Don't put renewal in front of the signer until you know.</p>
 
-  <details><summary>Template: user (developer)</summary>
+  <details open><summary>First message · Version 02-A · to the user (developer)</summary>
 <div class="msg">Subject: Is the site where you want it?
 
 Hi {first name},
@@ -209,29 +169,6 @@ I look after your Netlify account. Your team shipped about 9 updates a week thro
 
 That's often a good sign: the site is done and stable. Sometimes it means something got in the way.
 Which one is it for you? One line is plenty.
-
-Mike</div>
-  </details>
-  <details><summary>Template: champion</summary>
-<div class="msg">Subject: Checking in before your renewal
-
-Hi {first name},
-
-Your renewal is in about 10 weeks. Before then I'd like to know what's working and what isn't, so nothing surprises either of us.
-
-What's one thing the site does for the practice now that it didn't a year ago?
-
-Mike</div>
-  </details>
-  <details><summary>Template: renewal signer</summary>
-<div class="msg">Subject: Your Netlify renewal on {date}
-
-Hi {first name},
-
-Your Netlify plan renews on {date}. Nothing changes unless you want it to.
-
-Since {start month}, your team has published {N} updates to the site, and it has been up through {busy period}.
-If anything about the plan or the price needs a look before then, reply here and I'll sort it out.
 
 Mike</div>
   </details>
@@ -260,7 +197,7 @@ Mike</div>
   <p class="label">First message goes to</p>
   <p><strong>The champion.</strong> They can tell you who in IT or ops owns access, and they want to be the one who brings the fix.</p>
 
-  <details><summary>Template: champion</summary>
+  <details open><summary>First message · Version 03-A · to the champion</summary>
 <div class="msg">Subject: Access for a bigger team
 
 Hi {first name},
@@ -269,29 +206,6 @@ Your Netlify team went from 4 people to 11 since October, and someone asked us l
 
 That usually means it's time for single sign-on, so access follows your company login and offboarding happens in one place.
 Who owns logins and access at Ledgerly? I'm happy to send them the details or join a short call with you both.
-
-Mike</div>
-  </details>
-  <details><summary>Template: user (developer)</summary>
-<div class="msg">Subject: Removing old members
-
-Hi {first name},
-
-Saw the question about removing a former contractor. Here's how to do it today: {docs link}.
-
-Longer term, single sign-on would handle this for you. I've raised it with {champion name}.
-
-Mike</div>
-  </details>
-  <details><summary>Template: buyer (IT, ops or finance)</summary>
-<div class="msg">Subject: Netlify access for Ledgerly
-
-Hi {first name},
-
-{champion name} mentioned you own access at Ledgerly. 11 people now publish to your website on Netlify, each with a separate login.
-
-Single sign-on ties those logins to your company accounts, so when someone leaves, their access goes with them.
-Do you want a 20 minute walkthrough of what that costs and how setup works?
 
 Mike</div>
   </details>
@@ -325,7 +239,7 @@ Mike</div>
   <p class="label">First message goes to</p>
   <p><strong>The person who built it.</strong> They're stuck and they're the only one who can fix it. On a one-person account the builder, champion and signer are the same person, so this is the one time it looks like Future.</p>
 
-  <details><summary>Template: user (the builder)</summary>
+  <details open><summary>First message · Version 04-A · to the user (the builder)</summary>
 <div class="msg">Subject: Your site isn't live yet
 
 Hi {first name},
@@ -337,27 +251,6 @@ Can you reply with how you built it (for example Bolt, Lovable, or plain HTML)? 
 
 Mike</div>
   </details>
-  <details><summary>Template: champion (if someone else brought Netlify in)</summary>
-<div class="msg">Subject: {builder name}'s first deploy
-
-Hi {first name},
-
-{builder name} set up your Netlify project last week, and it isn't live yet. I've offered to help with the setting that's usually the cause.
-
-If they've moved on to something else, let me know who should get this instead.
-
-Mike</div>
-  </details>
-  <details><summary>Template: renewal signer (only if still stuck after 14 days)</summary>
-<div class="msg">Subject: Your Netlify project isn't live yet
-
-Hi {first name},
-
-You're paying for a Netlify plan, and your site hasn't gone live yet.
-I've reached out to {builder name} with the fix. If the project is on hold, tell me and I'll check back next month instead.
-
-Mike</div>
-  </details>
 
   <p class="label">Hand off when</p>
   <p>They reply with an error message or a build log: Support. Don't guess at code.</p>
@@ -366,24 +259,24 @@ Mike</div>
 </div>
 
 <!-- ============================================================
-     OUTCOME LOG  (Netlify Form, practice entries only)
+     LOG A SEND  (Netlify Form, practice entries only)
      ============================================================ -->
-<h2 id="log">Outcome log</h2>
-<p>Log every practice send. Submissions show up in your Netlify dashboard under Forms. After 4 weeks, sort by play and see which template got replies.</p>
+<h2 id="log">Log a send</h2>
+<p>Log each send twice: once on the day you send it (outcome "Sent, waiting"), and again after 7 days with what happened.</p>
 <div class="card">
-<form name="outcome-log" method="POST" action="/logged.html" data-netlify="true" netlify-honeypot="bot-field">
+<form name="send-log" method="POST" action="/logged.html" data-netlify="true" netlify-honeypot="bot-field">
   <p class="hidden"><label>Leave empty <input name="bot-field"></label></p>
-  <label for="play">Play</label>
-  <select id="play" name="play" required>
+  <label for="date">Date sent</label>
+  <input id="date" name="date" type="date" required>
+  <label for="version">Play and version</label>
+  <select id="version" name="version" required>
     <option value="">Pick one</option>
-    <option>01 Credit cliff</option>
-    <option>02 Gone quiet</option>
-    <option>03 Team outgrew its login</option>
-    <option>04 Stuck at first deploy</option>
+    <option>01-A Credit cliff</option>
+    <option>02-A Gone quiet</option>
+    <option>03-A Team outgrew its login</option>
+    <option>04-A Stuck at first deploy</option>
   </select>
-  <label for="account">Sample account (made up only)</label>
-  <input id="account" name="account" required>
-  <label for="role">Who you messaged</label>
+  <label for="role">Sent to</label>
   <select id="role" name="role" required>
     <option value="">Pick one</option>
     <option>User</option><option>Champion</option><option>Renewal signer</option>
@@ -391,13 +284,32 @@ Mike</div>
   <label for="outcome">Outcome</label>
   <select id="outcome" name="outcome" required>
     <option value="">Pick one</option>
-    <option>Sent, waiting</option><option>No response</option><option>Replied</option>
-    <option>Took the action</option><option>Stuck</option><option>Handed to Support</option><option>Handed to Sales</option>
+    <option>Sent, waiting</option><option>No reply</option><option>Replied</option><option>Took the action</option>
   </select>
-  <label for="notes">What happened, and what you'd change</label>
+  <label for="notes">Note: account (made up only), what they said, what you'd change</label>
   <textarea id="notes" name="notes" rows="3"></textarea>
   <button type="submit">Log it</button>
 </form>
+</div>
+
+<h2 id="review">Weekly review (15 minutes)</h2>
+<div class="card">
+<ol>
+  <li>In Netlify, open <strong>Forms</strong>, then <strong>send-log</strong>, and download the submissions.</li>
+  <li>For each version, count sends, replies and actions. Use only the 7-day entries.</li>
+  <li>Under about 10 sends, don't call a winner. Read the notes instead.</li>
+  <li>Over 10 sends, write a version B for the weakest message and change one thing only.</li>
+</ol>
+<div style="overflow-x:auto"><table>
+  <thead><tr><th>Version</th><th>Sends</th><th>Replied</th><th>Took the action</th><th>Next change</th></tr></thead>
+  <tbody>
+    <tr><td>01-A</td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>02-A</td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>03-A</td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>04-A</td><td></td><td></td><td></td><td></td></tr>
+  </tbody>
+</table></div>
+<p class="src">Copy this table into a sheet each week. Fill it by hand until the format proves itself.</p>
 </div>
 
 <p class="src">Facts tagged [Public] were checked on netlify.com and docs.netlify.com on Nov 19, 2026. Pricing changes often. Re-check before using a number with a customer.</p>

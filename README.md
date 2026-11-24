@@ -1,9 +1,12 @@
 # SMB Play Library
 
-A small, growing set of plays for Netlify's Tech Touch book. Each play is:
-a **trigger** (what you see in the data), **who gets the first message**, a **template for each role**
-(user, champion, renewal signer), a **hand-off rule**, and **what success looks like**.
-Every send gets logged so the library learns which messages work.
+A small set of plays for Netlify's Tech Touch book, with one job: **find out which first messages land, and keep improving them.**
+
+Each play is a **trigger** (what you see in the data), **who gets the first message**, **one versioned first message** (01-A),
+a **hand-off rule**, and **what success looks like**. Every send is logged, and a weekly review keeps the winner and writes a version B to beat it.
+
+**Landing** = took the action within 14 days (headline). Replied = early read.
+Built with the 5-step algorithm: question the requirements, delete, simplify, speed up, automate last.
 
 Started by Mike in Nov 2026, because there was no SMB playbook yet (said by Matt Gargano in interviews).
 
@@ -16,15 +19,39 @@ Started by Mike in Nov 2026, because there was no SMB playbook yet (said by Matt
 ## How to add a play
 1. Open `index.html`. Find a block that starts with `<!-- PLAY 0X -->`.
 2. Copy the whole `<div class="card">` block and paste it under the last play.
-3. Change the number, fill in every label, write three templates.
-4. Add the play to the dropdown in the Outcome log form.
+3. Change the number, fill in every label, and write one first message labeled with a version ID (05-A).
+4. Add the version to the dropdown in the Log a send form and a row to the weekly review table.
 5. Open a pull request. Check the Deploy Preview link. Merge when it looks right.
 
+## How to test a new version
+1. Under about 10 sends, don't call a winner. Read the notes.
+2. Write version B (01-B) and change one thing only, so you know what made the difference.
+3. Add it to the form dropdown. Keep the old version until the new one wins.
+
+## Reference: the Tuesday loop
+1. Open the account list (in Netlify's own tools). Look for accounts that match a play's trigger.
+2. Pick the play, then the person. The play says who gets the first message.
+3. Send one message. Hand off what isn't yours: bugs and odd traffic to Support, plan changes past Pro to Sales [Confirm the exact rules].
+4. Log the send. After 7 days, log the outcome.
+
+Why it exists: Tech Touch accounts get a welcome email, then mostly silence until about 90 days before renewal [Said, Matt].
+Measured on retention against an 85% target [Said]. Pipeline is an unofficial target [Said].
+
+## Reference: who to talk to
+| Role | Who they usually are | What they care about | What you give them |
+|---|---|---|---|
+| User | The developer, or whoever builds with AI and deploys | Shipping without things breaking | A fix, a setting, a how-to |
+| Champion | Whoever brought Netlify in or defends it | Looking right for picking Netlify | Proof it works, early warning |
+| Renewal signer | Owner, founder, finance, IT. May never log in. | Cost, risk, one clear decision | A choice with a price. Two options, max. |
+
+Only a Team Owner can turn auto recharge on or off [Public, docs, Nov 2026].
+
 ## Files
-- `index.html` the library, the Tuesday loop, the role table, and the outcome log form
+- `index.html` how it learns, the plays, the send log form, and the weekly review
 - `logged.html` the page you land on after logging an outcome
 
 ## Version log
 - v1 (Nov 19, 2026): Plays 01 Credit cliff, 02 Gone quiet, 03 Team outgrew its login.
 - v1.1 (Nov 21, 2026): Play 04 Stuck at first deploy, from Mike's own confusion on the build settings page.
 - v1.2 (Nov 21, 2026): First change made by Mike.
+- v2.0 (Nov 24, 2026): One job: track which first messages land. One versioned first message per play, a 5-field send log, a weekly review. Tuesday loop and role table moved here. The other role templates from v1.1 were deleted on purpose; they're in git history (tag `v1.1`) if any earn their way back.
