@@ -32,7 +32,7 @@ Started by Mike in Nov 2026, because there was no SMB playbook yet (said by Matt
 1. Open the account list (in Netlify's own tools). Look for accounts that match a play's trigger.
 2. Pick the play, then the person. The play says who gets the first message.
 3. Send one message. Hand off what isn't yours: bugs and odd traffic to Support, plan changes past Pro to Sales [Confirm the exact rules].
-4. Log the send. After 7 days, log the outcome.
+4. After 7 days, log the send and its outcome.
 
 Why it exists: Tech Touch accounts get a welcome email, then mostly silence until about 90 days before renewal [Said, Matt].
 Measured on retention against an 85% target [Said]. Pipeline is an unofficial target [Said].
@@ -55,3 +55,4 @@ Only a Team Owner can turn auto recharge on or off [Public, docs, Nov 2026].
 - v1.1 (Nov 21, 2026): Play 04 Stuck at first deploy, from Mike's own confusion on the build settings page.
 - v1.2 (Nov 21, 2026): First change made by Mike.
 - v2.0 (Nov 24, 2026): One job: track which first messages land. One versioned first message per play, a 5-field send log, a weekly review. Tuesday loop and role table moved here. The other role templates from v1.1 were deleted on purpose; they're in git history (commit `4d64e01`, the last v1 version) if any earn their way back.
+- v2.1 (Nov 24, 2026): Log each send once, at 7 days. Count results from the Forms list; no CSV download.

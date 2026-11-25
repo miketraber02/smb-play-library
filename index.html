@@ -71,7 +71,7 @@ On the job, run these plays in Netlify's own tools and keep this site as the met
 <p class="label">The loop</p>
 <ol>
   <li>Each play has <strong>one first message</strong> with a version ID, like 01-A.</li>
-  <li>Send it, then log it below with the version ID.</li>
+  <li>Send it and note the date.</li>
   <li>After 7 days, log the outcome: no reply, replied, or took the action.</li>
   <li>Every week, compare versions. After about 10 sends, keep the winner and write a version B to beat it.</li>
 </ol>
@@ -262,7 +262,7 @@ Mike</div>
      LOG A SEND  (Netlify Form, practice entries only)
      ============================================================ -->
 <h2 id="log">Log a send</h2>
-<p>Log each send twice: once on the day you send it (outcome "Sent, waiting"), and again after 7 days with what happened.</p>
+<p>Log each send once, 7 days after you send it, with what happened.</p>
 <div class="card">
 <form name="send-log" method="POST" action="/logged.html" data-netlify="true" netlify-honeypot="bot-field">
   <p class="hidden"><label>Leave empty <input name="bot-field"></label></p>
@@ -284,7 +284,7 @@ Mike</div>
   <label for="outcome">Outcome</label>
   <select id="outcome" name="outcome" required>
     <option value="">Pick one</option>
-    <option>Sent, waiting</option><option>No reply</option><option>Replied</option><option>Took the action</option>
+    <option>No reply</option><option>Replied</option><option>Took the action</option>
   </select>
   <label for="notes">Note: account (made up only), what they said, what you'd change</label>
   <textarea id="notes" name="notes" rows="3"></textarea>
@@ -295,8 +295,8 @@ Mike</div>
 <h2 id="review">Weekly review (15 minutes)</h2>
 <div class="card">
 <ol>
-  <li>In Netlify, open <strong>Forms</strong>, then <strong>send-log</strong>, and download the submissions.</li>
-  <li>For each version, count sends, replies and actions. Use only the 7-day entries.</li>
+  <li>In Netlify, open <strong>Forms</strong>, then <strong>send-log</strong>.</li>
+  <li>For each version, count sends, replies and actions straight from the list.</li>
   <li>Under about 10 sends, don't call a winner. Read the notes instead.</li>
   <li>Over 10 sends, write a version B for the weakest message and change one thing only.</li>
 </ol>
@@ -309,7 +309,7 @@ Mike</div>
     <tr><td>04-A</td><td></td><td></td><td></td><td></td></tr>
   </tbody>
 </table></div>
-<p class="src">Copy this table into a sheet each week. Fill it by hand until the format proves itself.</p>
+<p class="src">Fill this in by hand until the format proves itself. Automate only what still hurts after a real run.</p>
 </div>
 
 <p class="src">Facts tagged [Public] were checked on netlify.com and docs.netlify.com on Nov 19, 2026. Pricing changes often. Re-check before using a number with a customer.</p>
